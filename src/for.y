@@ -2,14 +2,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 char st[100][10];
 int top = -1;
 char temp[3] = "t0";
-extern int yylex();
-extern char* yytext;
-void yyerror(char*);
 int indent = 0;
 
+extern int yylex();
+extern char* yytext;
+
+void yyerror(char*);
 void push();
 void gen();
 void gen_asgn();
@@ -24,6 +26,7 @@ void goto_L1();
 void End();
 void printIndent();
 %}
+
 %token ID NUM INC DEC FOR LE GE EQ NE OR AND
 %right '='
 %left OR AND
@@ -76,7 +79,7 @@ E2          : E '<' {push();} E{gen_comp();}
 
 void yyerror(char* s) {
     printf("%s",s);
-  exit(1);
+    exit(1);
 }
 int main() {
     printf("Enter the expression:\n");
