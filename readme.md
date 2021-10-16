@@ -4,6 +4,17 @@
 ## Simulation of front-end phase of C Compiler involving for construct.
 
 ### Instructions to run
+#### Compiling in Windows (10/11)
+-   Install Flex (.l files) and Bison (.y files).
+-   Download the ZIP containing the files and extract it.
+-   Open Command Prompt and change working directory to the pcd_for_compiler folder.
+-   Run
+    ```bash
+    flex for.l
+    bison -dy for.y
+    gcc lex.yy.c y.tab.c -o <executable name for program>
+    <executable name for program>.exe
+#### Compiling in Linux
 -   Clone the repository
 -   Run 
     ```bash
